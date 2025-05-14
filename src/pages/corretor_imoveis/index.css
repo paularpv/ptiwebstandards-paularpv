@@ -1,0 +1,235 @@
+/**** Estilos Gerais ****/
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    width: 80%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px 0;
+    overflow: hidden; /* Para conter floats */
+}
+
+h1, h2 {
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.btn {
+    display: inline-block;
+    background: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background: #0056b3;
+}
+
+/**** Hero Section ****/
+.hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1973&q=80'); /* Imagem de fundo com overlay escuro */
+    background-size: cover; /* Cobre toda a área */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Não repete a imagem */
+    color: #fff; /* Texto branco para contraste */
+    padding: 100px 0; /* Aumenta o padding para melhor visualização da imagem */
+    text-align: center;
+    position: relative; /* Para o overlay, se necessário de outra forma */
+}
+
+.hero h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    color: #fff; /* Garante que o h1 seja branco */
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: #f0f0f0; /* Cor levemente mais suave para o parágrafo */
+}
+
+/**** Seções (Sobre, Serviços, Benefícios) ****/
+.sobre, .servicos, .beneficios, .contato {
+    padding: 40px 0;
+}
+
+.sobre .container,
+.servicos .container,
+.beneficios .container,
+.contato .container {
+    display: flex;
+    align-items: center;
+    gap: 40px; /* Espaço entre texto e foto */
+}
+
+.sobre .texto,
+.servicos .texto,
+.beneficios .texto,
+.contato .texto {
+    flex: 1;
+}
+
+.sobre .foto,
+.servicos .foto,
+.beneficios .foto {
+    flex: 1;
+    text-align: center; /* Centraliza a imagem se ela for menor que o contêiner flex */
+}
+
+.sobre .foto img,
+.servicos .foto img,
+.beneficios .foto img {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Inverter a ordem para as seções especificadas */
+.servicos .container.invert,
+.beneficios .container.invert {
+    flex-direction: row-reverse;
+}
+
+.servicos ul, .beneficios ul {
+    list-style: none;
+    padding: 0;
+}
+
+.servicos ul li, .beneficios ul li {
+    background: #f9f9f9;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-left: 3px solid #007bff;
+}
+
+/**** Seção Contato ****/
+.contato {
+    background: #f9f9f9;
+}
+
+.contato .container.invert {
+  flex-direction: column; /* Empilha o formulário */
+}
+
+.contato h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.contato form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 600px; /* Limita a largura do formulário */
+    margin: 0 auto; /* Centraliza o formulário */
+}
+
+.contato input[type="text"],
+.contato input[type="email"],
+.contato input[type="tel"],
+.contato textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Garante que padding não aumente a largura total */
+}
+
+.contato textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.contato button[type="submit"] {
+    background: #28a745; /* Verde para o botão de enviar */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.contato button[type="submit"]:hover {
+    background: #218838;
+}
+
+/**** Responsividade ****/
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5em;
+    }
+
+    .hero p {
+        font-size: 1em;
+    }
+
+    .container {
+        width: 90%;
+    }
+
+    .sobre .container,
+    .servicos .container,
+    .beneficios .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    /* Remove a inversão em telas menores, pois já estarão empilhados */
+    .servicos .container.invert,
+    .beneficios .container.invert {
+        flex-direction: column; /* Mantém empilhado, sem reverter */
+    }
+
+    .sobre .foto,
+    .servicos .foto,
+    .beneficios .foto {
+        margin-top: 20px;
+    }
+
+    .contato .container.invert {
+      flex-direction: column;
+    }
+}
+
+/**** Footer ****/
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+footer p {
+    margin: 0;
+}
+footer a {
+    color: #007bff;
+    text-decoration: none;
+}
+footer a:hover {
+    text-decoration: underline;
+}
+footer .social-icons {
+    margin-top: 10px;
+}                                           
